@@ -15,7 +15,7 @@ from cinema.models import (
 class MovieImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ["id", "image"]
+        fields = ("id", "image")
 
 
 class GenreSerializer(serializers.ModelSerializer):
@@ -39,8 +39,15 @@ class CinemaHallSerializer(serializers.ModelSerializer):
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movie
-        fields = ("id", "title", "description", "duration",
-                  "genres", "actors", "image")
+        fields = (
+            "id",
+            "title",
+            "description",
+            "duration",
+            "genres",
+            "actors",
+            "image"
+        )
         read_only_fields = ("id", "image")
 
 
